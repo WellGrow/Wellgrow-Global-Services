@@ -1,238 +1,673 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="hi">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>WellGrow Global Services — Visa & Immigration Consulting</title>
-  <meta name="description" content="WellGrow Global Services — Trusted visa, immigration and study-abroad counselling. Growing With You, Across the World." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>WellGrow Global Services</title>
+  <!-- Google Fonts Integration -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --blue:#0057A4; /* primary */
-      --teal:#1DB954; /* accent */
-      --gold:#D4AF37; /* highlight */
-      --bg:#f7fafc;
-      --muted:#6b7280;
-      --card:#ffffff;
-      --radius:14px;
-      font-family: 'Poppins', 'Nunito Sans', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    :root {
+      --blue: #182747;
+      --blue-dark: #0A193D;
+      --green: #30B700;
+      --gold: #FFD700;
+      --gray: #F7F7F7;
+      --gray-dark: #616161;
+      --white: #fff;
+      --aqua: #21E6C1;
+      --transition: all 0.3s cubic-bezier(.4,0,.2,1);
     }
-    *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:#0f172a;line-height:1.5}
-    .container{max-width:1100px;margin:0 auto;padding:28px}
+    html,body {
+      margin:0;
+      padding:0;
+      font-family: 'Inter', sans-serif;
+      background: var(--gray);
+      color: var(--blue-dark);
+      scroll-behavior: smooth;
+    }
+    body {
+      font-size:16px;
+      min-width:320px;
+    }
+    /* Navigation */
+    .navbar {
+      width:100%;
+      background:var(--blue-dark);
+      color:var(--white);
+      position:sticky;
+      top:0;
+      z-index:100;
+      display:flex;
+      align-items:center;
+      padding:0 32px;
+      height:72px;
+      box-shadow:0 2px 12px rgba(13,35,64,.03);
+    }
+    .navbar-logo {
+      display:flex;
+      align-items:center;
+    }
+    .navbar-logo svg {
+      height:34px;
+      margin-right:12px;
+    }
+    .navbar-title {
+      font-family:'Montserrat',sans-serif;
+      font-weight:700;
+      font-size:1.5rem;
+      letter-spacing:2px;
+    }
+    .nav-links {
+      margin-left:auto;
+      display:flex;
+      gap:32px;
+    }
+    .nav-links a {
+      color:var(--white);
+      text-decoration:none;
+      font-family:'Montserrat',sans-serif;
+      font-size:1rem;
+      letter-spacing:.5px;
+      transition:color .2s;
+      position:relative;
+      padding-bottom:2px;
+    }
+    .nav-links a:after {
+      content:'';
+      position:absolute;
+      width:0;
+      left:0;
+      bottom:0;
+      height:2.5px;
+      background:linear-gradient(90deg,var(--green),var(--gold));
+      transition:width 0.2s;
+      border-radius:2px;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color:var(--gold);
+    }
+    .nav-links a:hover:after, .nav-links a.active:after {
+      width:100%;
+    }
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(90deg,var(--blue-dark) 60%,var(--green) 100%);
+      color: var(--white);
+      min-height: 440px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 80px 6vw 48px 6vw;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-content {
+      max-width: 520px;
+      z-index:2;
+    }
+    .hero-title {
+      font-family:'Montserrat',sans-serif;
+      font-size: 2.4rem;
+      font-weight: bold;
+      margin-bottom: 16px;
+      line-height:1.15;
+      letter-spacing:1px;
+    }
+    .hero-tagline {
+      font-size: 1.14rem;
+      margin-bottom: 30px;
+      color:#E8EAF6;
+      font-weight:400;
+      letter-spacing:.2px;
+    }
+    .hero-cta {
+      background: linear-gradient(90deg,var(--gold),var(--green));
+      color:var(--blue-dark);
+      font-family:'Montserrat',sans-serif;
+      font-size:1.09rem;
+      font-weight:700;
+      padding:13px 38px;
+      border:none;
+      border-radius:32px;
+      cursor:pointer;
+      box-shadow:0 1.5px 14px rgba(0,0,0,.07);
+      transition:background .25s,transform .18s;
+      outline:none;
+      margin-top:8px;
+      letter-spacing:.5px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-cta:hover, .hero-cta:focus {
+      background:linear-gradient(90deg,var(--green),var(--gold),var(--aqua));
+      color:var(--blue-dark);
+      transform:translateY(-3px) scale(1.04);
+      box-shadow:0 6px 28px 0 rgba(0,0,0,0.12);
+    }
+    .hero-image {
+      flex:1;
+      min-width:280px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      z-index:1;
+    }
+    .hero-img-circle {
+      width:320px;
+      height:320px;
+      border-radius:50%;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--aqua) 80%);
+      filter: blur(21px) opacity(.47);
+      position:absolute;
+      left:30px;
+      top:56px;
+      z-index:0;
+    }
+    .hero-img-main {
+      width:200px;
+      height:200px;
+      background:
+        url('https://cdn.pixabay.com/photo/2017/10/31/09/57/globe-2907738_1280.png') center/cover no-repeat,
+        linear-gradient(135deg, var(--blue-dark) 54%, transparent 100%);
+      border-radius: 24px 64px 24px 64px;
+      border:8px solid var(--gold);
+      z-index:3;
+      box-shadow:0 6px 32px 0 rgba(22,38,71,0.12);
+    }
+    /* About Section */
+    .section {
+      padding:60px 4vw 40px 4vw;
+      background:var(--white);
+      position:relative;
+    }
+    .section-heading {
+      font-family:'Montserrat',sans-serif;
+      font-size:2rem;
+      color:var(--blue-dark);
+      font-weight:700;
+      margin-bottom:20px;
+      position:relative;
+    }
+    .section-heading::after {
+      content:"";
+      display:block;
+      width:72px;
+      height:4px;
+      background:linear-gradient(90deg,var(--green),var(--gold),var(--aqua));
+      margin-top:12px;
+      border-radius:2.5px;
+    }
+    .about-content {
+      max-width:800px;
+      line-height:1.7;
+      font-size:1.11rem;
+      color:var(--gray-dark);
+      margin-bottom:20px;
+    }
+    .about-highlights {
+      display:flex;
+      flex-wrap:wrap;
+      gap:36px;
+      margin-top:32px;
+    }
+    .about-highlight {
+      flex:1 1 180px;
+      background:linear-gradient(92deg,var(--gray),white 83%,var(--aqua) 110%);
+      border-radius:14px;
+      padding:24px 18px 18px 20px;
+      box-shadow:0 1.5px 12px 1.5px rgba(30,44,80,0.04);
+      min-width:170px;
+      transition:var(--transition);
+      border-left:5px solid var(--blue);
+    }
+    .about-highlight:hover {
+      border-left:6px solid var(--gold);
+      box-shadow:0 4px 22px 6px rgba(39,61,102,0.11);
+      transform:translateY(-6px) scale(1.04);
+    }
+    .about-icon {
+      font-size:2.14rem;
+      color:var(--green);
+      margin-bottom:7px;
+    }
+    .about-highlight-title {
+      font-family:'Montserrat',sans-serif;
+      font-weight:600;
+      font-size:1.14rem;
+      margin-bottom:6px;
+      color:var(--blue-dark);
+    }
+    /* Services Section */
+    .services-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
+      gap:32px;
+      margin-top:30px;
+      margin-bottom:12px;
+    }
+    .service-card {
+      background: linear-gradient(136deg,var(--blue-dark) 80%, var(--aqua) 133%);
+      color:var(--white);
+      border-radius:18px;
+      box-shadow:0 1.5px 13px 2px rgba(30,44,80,0.05);
+      padding:32px 20px 28px 20px;
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      cursor:pointer;
+      transition:var(--transition);
+      outline: none;
+      border: none;
+      position:relative;
+    }
+    .service-card:focus, .service-card:hover {
+      box-shadow:0 6px 30px 0 rgba(14,125,59,0.13),0 2px 22px 0 var(--aqua);
+      background: linear-gradient(110deg,var(--aqua) 65%, var(--green) 133%);
+      color:var(--blue-dark);
+      transform:translateY(-7px) scale(1.036);
+    }
+    .service-icon {
+      font-size:2.0rem;
+      color:var(--gold);
+      margin-bottom:12px;
+      transition:color .18s;
+    }
+    .service-card:hover .service-icon { color:var(--white);}
+    .service-title {
+      font-family:'Montserrat',sans-serif;
+      font-weight:600;
+      font-size:1.14rem;
+      margin-bottom:0.8rem;
+    }
+    .service-desc {
+      font-size:0.97rem;
+      line-height:1.5;
+      margin-bottom:0.9rem;
+    }
+    .service-cta {
+      background: none;
+      padding:0;
+      color:var(--green);
+      font-weight: 600;
+      font-family:inherit;
+      font-size:1rem;
+      cursor:pointer;
+      border: none;
+      transition:color .20s;
+    }
+    .service-card:hover .service-cta { color:var(--blue-dark) }
 
-    /* Header */
-    header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
-    .brand{display:flex;align-items:center;gap:14px}
-    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--blue),var(--teal));display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:20px}
-    .brand h1{margin:0;font-size:18px}
-    .tagline{font-size:12px;color:var(--muted);margin-top:4px}
-    nav{display:flex;gap:18px;align-items:center}
-    nav a{color:var(--muted);text-decoration:none;font-weight:600}
-    .cta{background:var(--blue);color:white;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
-
-    /* Hero */
-    .hero{display:grid;grid-template-columns:1fr 420px;gap:36px;align-items:center;padding:36px 0}
-    .hero h2{font-size:34px;margin:0 0 12px}
-    .hero p{margin:0 0 18px;color:var(--muted)}
-    .hero .actions{display:flex;gap:12px}
-    .btn{padding:12px 16px;border-radius:10px;text-decoration:none;font-weight:700}
-    .btn-primary{background:linear-gradient(90deg,var(--blue),#0371ce);color:white}
-    .btn-outline{background:white;border:1px solid #e6e9ef;color:var(--blue)}
-    .card-hero{background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.75));padding:22px;border-radius:16px;box-shadow:0 8px 30px rgba(2,6,23,0.06)}
-
-    /* Services */
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:28px 0}
-    .service{background:var(--card);padding:20px;border-radius:12px;box-shadow:0 6px 20px rgba(2,6,23,0.04)}
-    .service h3{margin:10px 0 6px}
-    .service p{margin:0;color:var(--muted);font-size:14px}
-
-    /* Steps */
-    .steps{display:flex;gap:12px;align-items:stretch}
-    .step{flex:1;background:linear-gradient(180deg,#fff, #fbfdff);padding:18px;border-radius:12px;text-align:center}
-    .step .num{width:44px;height:44px;border-radius:10px;background:var(--blue);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;margin-bottom:10px}
-
+    /* Process/Steps */
+    .steps-list {
+      display:flex;
+      flex-wrap:wrap;
+      gap:28px 36px;
+      margin-top:28px;
+      flex-direction:row;
+    }
+    .step-card {
+      flex: 1 1 180px;
+      background:#F4F9FF;
+      border-radius:15px;
+      box-shadow:0 1.5px 8px 1px rgba(34,52,90,0.04);
+      padding:19px 18px 23px 18px;
+      position:relative;
+      border-top:6px solid var(--green);
+      transition:var(--transition);
+      min-width:170px;
+      z-index:2;
+      display:flex;
+      flex-direction:column;
+    }
+    .step-badge {
+      width:38px;height:38px;
+      border-radius:30%;
+      background:linear-gradient(135deg,var(--green),var(--gold));
+      color:var(--blue-dark);
+      font-weight:bold;
+      font-family:'Montserrat',sans-serif;
+      font-size:1.29rem;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin-bottom:17px;
+      box-shadow:0 2px 9px 0 rgba(14,125,59,0.10);
+    }
+    .step-title {
+      font-family:'Montserrat',sans-serif;
+      font-size:1.11rem;
+      font-weight:600;
+      color:var(--blue-dark);
+      margin-bottom:6px;
+    }
+    .step-desc {
+      font-size:.98rem;
+      color:var(--gray-dark);
+      line-height:1.55;
+    }
+    .step-card:hover, .step-card:focus {
+      border-top:7px solid var(--gold);
+      background:linear-gradient(90deg,var(--gray) 47%,#E6FAF9 104%);
+      box-shadow:0 4px 21px 4px rgba(33,230,193,0.09);
+      transform:translateY(-5px) scale(1.02);
+    }
     /* Testimonials */
-    .testimonials{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:28px 0}
-    .testimonial{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 20px rgba(2,6,23,0.04)}
-    .testimonial p{color:var(--muted);font-size:14px}
-
-    /* Contact */
-    .contact{display:grid;grid-template-columns:1fr 420px;gap:24px;align-items:start;margin:28px 0}
-    form{background:var(--card);padding:20px;border-radius:12px;box-shadow:0 6px 20px rgba(2,6,23,0.04)}
-    input,textarea,select{width:100%;padding:12px;border-radius:10px;border:1px solid #e6e9ef;margin-bottom:10px;font-family:inherit}
-    button.send{background:var(--teal);color:white;padding:12px 16px;border-radius:10px;border:none;font-weight:700}
-
-    footer{padding:28px 0;color:var(--muted);font-size:14px}
-
-    /* responsive */
-    @media (max-width:980px){
-      .hero,.contact{grid-template-columns:1fr}
-      .grid{grid-template-columns:repeat(2,1fr)}
-      .testimonials{grid-template-columns:1fr}
+    .testimonials-slider {
+      width:100%;
+      margin-top:38px;
+      position:relative;
+      overflow:hidden;
+      min-height:190px;
+      padding-bottom:16px;
     }
-    @media (max-width:560px){
-      .grid{grid-template-columns:1fr}
-      header{flex-direction:column;align-items:flex-start;gap:12px}
+    .testimonial-cards {
+      display:flex;
+      gap:32px;
+      transition:var(--transition);
+      min-width:600px;
+      width: max-content;
+      /* For simple showcase, not carousel here, in prod, use JS slider for auto-scroll */
     }
+    .testimonial-card {
+      background:linear-gradient(133deg,var(--white) 88%,var(--aqua) 143%);
+      border-radius:18px;
+      box-shadow:0 1.5px 12px 2px rgba(30,44,80,0.09);
+      padding:30px 22px 22px 22px;
+      min-width:260px;
+      max-width:315px;
+      display:flex;
+      flex-direction:column;
+      align-items:start;
+      position:relative;
+      transition:var(--transition);
+      border-left:5.4px solid var(--green);
+    }
+    .testimonial-card:hover {
+      box-shadow:0 8px 30px 0 rgba(14,125,59,0.10),0 2px 21px 0 var(--aqua);
+      border-left:6px solid var(--gold);
+      background:linear-gradient(120deg,var(--white) 80%,var(--gold) 153%);
+      transform:translateY(-6px) scale(1.04);
+    }
+    .testimonial-quote {
+      font-size:1.1rem;
+      font-style:italic;
+      color:var(--blue-dark);
+      margin-bottom:13px;
+      line-height:1.5;
+      position:relative;
+      letter-spacing:.13px;
+    }
+    .testimonial-person {
+      display:flex;
+      align-items:center;
+      gap:14px;
+      margin-top:2px;
+    }
+    .testimonial-photo {
+      width:46px;
+      height:46px;
+      border-radius:50%;
+      background:var(--gray-dark);
+      border:2.5px solid var(--aqua);
+      object-fit:cover;
+    }
+    .testimonial-meta {
+      display:flex;
+      flex-direction:column;
+      line-height:1.05;
+    }
+    .testimonial-name { font-size:.97rem; font-weight:600; color:var(--blue-dark);}
+    .testimonial-role { font-size:.92rem; color:var(--gold);}
+    /* Contact Section */
+    .contact-wrap {
+      display:flex;
+      flex-wrap:wrap;
+      gap:32px;
+      margin-top:36px;
+    }
+    .contact-form, .contact-info {
+      flex:1 1 308px;
+      background:linear-gradient(120deg,var(--white) 74%,var(--aqua) 174%);
+      border-radius:18px;
+      box-shadow:0 2px 14px 2px rgba(30,44,90,0.08);
+      padding:36px 32px 30px 32px;
+      min-width:270px;
+    }
+    .contact-info {
+      background:linear-gradient(114deg,var(--gray) 84%,var(--gold) 124%);
+      color:var(--blue-dark);
+    }
+    .contact-form label {
+      display:block;
+      font-weight:500;
+      margin-bottom:7px;
+      color:var(--blue-dark);
+      font-family:'Montserrat',sans-serif;
+    }
+    .contact-form input[type="text"], .contact-form input[type="email"], .contact-form textarea {
+      width:100%;
+      border-radius:8px;
+      border:1.7px solid var(--aqua);
+      background:var(--gray);
+      padding:11px 13px;
+      margin-bottom:18px;
+      font-size:1rem;
+      font-family:inherit;
+      resize:none;
+      outline:none;
+      box-sizing:border-box;
+      transition:border .15s,box-shadow .16s;
+    }
+    .contact-form input:focus, .contact-form textarea:focus {
+      border:2.2px solid var(--gold);
+      box-shadow: 0 3px 10px 0 var(--aqua);
+    }
+    .contact-form textarea { min-height:78px; }
+    .contact-form button {
+      background:linear-gradient(94deg, var(--green) 66%,var(--gold) 133%);
+      color:var(--blue-dark);
+      border:none;
+      border-radius:10px;
+      padding:12px 32px;
+      font-family:'Montserrat',sans-serif;
+      font-size:1.13rem;
+      font-weight:600;
+      letter-spacing:.6px;
+      cursor:pointer;
+      transition:background .2s,transform .2s;
+      box-shadow:0 2px 20px 0 rgba(18,39,61,0.06);
+      outline:none;
+    }
+    .contact-form button:hover, .contact-form button:focus {
+      background:linear-gradient(104deg,var(--gold),var(--green),var(--aqua) 93%);
+      transform:translateY(-2px) scale(1.04);
+      color:var(--blue);
+      box-shadow:0 2px 25px 8px rgba(33,230,193,.13);
+    }
+    .contact-info h3 {
+      font-size:1.07rem;
+      font-family:'Montserrat',sans-serif;
+      font-weight:bold;
+      margin-bottom:8px;
+      color:var(--blue-dark);
+      letter-spacing:.14px;
+    }
+    .contact-info ul {
+      list-style:none;
+      padding-left:0;
+    }
+    .contact-info li {
+      margin-bottom:15px;
+      display:flex;
+      align-items:center;
+      gap:14px;
+      font-size:1.05rem;
+      color:var(--blue-dark);
+    }
+    .contact-icon {
+      font-size:1.25rem;
+      color:var(--green);
+    }
+    .social-icons {
+      display:flex;
+      gap:15px;
+      margin-top:20px;
+    }
+    .social-icons a {
+      color:var(--blue-dark);
+      background:rgba(193,229,230,0.23);
+      width:34px;height:34px;
+      display:inline-flex;align-items:center;justify-content:center;
+      border-radius: 50%;
+      font-size:1.11rem;
+      border:1.5px solid var(--aqua);
+      transition:background .20s, color .19s, border .2s;
+    }
+    .social-icons a:hover {
+      background:var(--blue-dark);
+      color:var(--gold);
+      border-color:var(--gold);
+    }
+    /* Footer */
+    .footer {
+      background: var(--blue-dark);
+      color:var(--white);
+      padding:35px 4vw 24px 4vw;
+      display:flex;
+      flex-wrap:wrap;
+      gap:30px;
+      justify-content:space-between;
+      align-items:flex-start;
+    }
+    .footer-brand {
+      display:flex;
+      align-items:center;
+      gap:13px;
+      margin-bottom:6px;
+    }
+    .footer-logo {
+      width:36px;height:36px;
+    }
+    .footer-title {
+      font-size:1.25rem;
+      font-family:'Montserrat',sans-serif;
+      font-weight:bold;
+      letter-spacing:.9px;
+    }
+    .footer-links, .footer-contact, .footer-social {
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .footer-links a {
+      color:var(--white);
+      text-decoration:none;
+      font-size:.98rem;
+      transition:color .19s;
+    }
+    .footer-links a:hover,.footer-links a:focus { color:var(--gold);}
+    .footer-contact span {
+      display:inline-block;
+      font-size:.97rem;
+      color:var(--gray);
+    }
+    .footer-social {
+      flex-direction:row;
+      gap:17px;
+      margin-top:2px;
+    }
+    .footer-social a {
+      color:var(--gold);
+      font-size:1.15rem;
+      transition:color .20s;
+    }
+    .footer-social a:hover { color:var(--green);}
+    .footer-copyright {
+      width:100%;
+      text-align:center;
+      color:var(--gray);
+      padding-top:23px;
+      margin-bottom:0;
+      font-size:.93rem;
+      letter-spacing:.11px;
+    }
+    /* Animations */
+    @media (max-width: 900px) {
+      .navbar {height:56px; padding:0 12px;}
+      .nav-links {gap:17px;}
+      .hero {padding-top: 58px;padding-bottom:12px;}
+      .hero-img-main {width:145px;height:145px;}
+      .hero-img-circle {width:185px;height:185px; left:-9px;top:21px;}
+      .about-highlights, .steps-list, .services-list, .contact-wrap {gap:14px;}
+      .section,.footer {padding:34px 2vw;}
+    }
+    @media (max-width:600px) {
+      .navbar {flex-direction:column;padding:0 5px;height:auto;}
+      .nav-links {margin-left:0;margin-top:8px;}
+      .hero {flex-direction:column;align-items:flex-start;padding:33px 2vw;}
+      .hero-content {max-width:100%;margin-bottom:22px;}
+      .hero-image {justify-content:flex-start;}
+      .about-highlights,.steps-list,.services-list,.contact-wrap {flex-direction:column;gap:17px;}
+      .footer {flex-direction:column;gap:13px;}
+      .testimonials-slider {min-width:auto;}
+      .testimonial-cards {flex-direction:column;gap:23px;}
+      .section-heading {font-size:1.44rem;}
+      .hero-title {font-size:1.31rem;}
+      .footer-title {font-size:1.12rem;}
+    }
+    /* Scrollbar styling for visual */
+    ::-webkit-scrollbar {height:7px;width:7px;}
+    ::-webkit-scrollbar-thumb {background:linear-gradient(135deg,var(--aqua) 47%,var(--blue) 101%);border-radius:6px;}
+    ::selection {background:#d5ffe6;color:var(--blue);}
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="brand">
-        <div class="logo">WG</div>
-        <div>
-          <h1>WellGrow Global Services</h1>
-          <div class="tagline">Growing With You, Across the World</div>
-        </div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-logo">
+      <svg viewBox="0 0 40 40" width="36" height="36" fill="none">
+        <circle cx="20" cy="20" r="20" fill="#30B700"/>
+        <path d="M11 26l7-12 4 7 7-10" stroke="#FFD700" stroke-width="2.2" fill="none"/>
+        <circle cx="29" cy="14" r="3" fill="#FFD700"/>
+      </svg>
+      <span class="navbar-title">WellGrow</span>
+    </div>
+    <div class="nav-links">
+      <a href="#home" class="active">होम</a>
+      <a href="#about">परिचय</a>
+      <a href="#services">सेवाएँ</a>
+      <a href="#process">प्रक्रिया</a>
+      <a href="#testimonials">प्रशंसा</a>
+      <a href="#contact">संपर्क</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-title">विश्व स्तरीय सफलता का आपका भरोसेमंद मार्गदर्शक</div>
+      <div class="hero-tagline">
+        WellGrow Global Services — आपकी शिक्षा, रोजगार व ग्लोबल अवसरों की ओर अग्रसर यात्रा को नया आयाम देता है। विशेषज्ञ मार्गदर्शन, वैयक्तिकृत सेवाएँ एवं अभूतपूर्व परिणाम — क्योंकि आपका ग्रोथ ही हमारा लक्ष्य है।
       </div>
-      <nav>
-        <a href="#services">Services</a>
-        <a href="#process">Process</a>
-        <a href="#contact">Contact</a>
-        <a class="cta" href="#contact">Book Free Consult</a>
-      </nav>
-    </header>
+      <a href="#contact" class="hero-cta">हमसे संपर्क करें</a>
+    </div>
+    <div class="hero-image">
+      <div class="hero-img-circle"></div>
+      <div class="hero-img-main"></div>
+    </div>
+  </section>
 
-    <main>
-      <section class="hero">
-        <div>
-          <h2>Your trusted partner for visas & immigration</h2>
-          <p>WellGrow Global Services helps students, professionals and families move abroad with confidence. Personalized counselling, transparent process and global support.</p>
-          <div class="actions">
-            <a class="btn btn-primary" href="#contact">Get Free Consultation</a>
-            <a class="btn btn-outline" href="#services">Our Services</a>
-          </div>
-
-          <div style="margin-top:22px;display:flex;gap:10px;align-items:center">
-            <div style="background:var(--card);padding:10px;border-radius:10px;box-shadow:0 6px 18px rgba(2,6,23,0.04)">
-              <strong>Trusted</strong>
-              <div style="color:var(--muted);font-size:13px">Transparent fees & clear process</div>
-            </div>
-            <div style="background:var(--card);padding:10px;border-radius:10px;box-shadow:0 6px 18px rgba(2,6,23,0.04)">
-              <strong>Expert</strong>
-              <div style="color:var(--muted);font-size:13px">Experienced counsellors</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-hero">
-          <h3 style="margin-top:0;margin-bottom:8px">Quick Eligibility Check</h3>
-          <p style="margin:0 0 12px;color:var(--muted)">Answer 3 quick questions to check basic eligibility for study or work visas.</p>
-          <form onsubmit="alert('This is a demo form — integrate with backend to collect leads.');return false;">
-            <select required>
-              <option value="">I am applying for</option>
-              <option>Student Visa</option>
-              <option>Work Visa</option>
-              <option>Family/Spouse Visa</option>
-            </select>
-            <input placeholder="Country of interest (eg. Finland)" required />
-            <input placeholder="Email or phone" required />
-            <button class="btn btn-primary" type="submit">Check Eligibility</button>
-          </form>
-        </div>
-      </section>
-
-      <section id="services">
-        <h3 style="margin-bottom:8px">Our Services</h3>
-        <div class="grid">
-          <div class="service">
-            <strong>Student Visa Assistance</strong>
-            <h3>University applications & visa filing</h3>
-            <p>End-to-end support: admissions, documentation, visa filing and pre-departure guidance.</p>
-          </div>
-          <div class="service">
-            <strong>Work & Skilled Visas</strong>
-            <h3>Career-focused immigration</h3>
-            <p>Job search guidance, employer liaison, document preparation and application follow-up.</p>
-          </div>
-          <div class="service">
-            <strong>Family & Spouse Visas</strong>
-            <h3>Family reunification support</h3>
-            <p>Guidance for spouse, partner and dependent visa applications with accurate documentation checklists.</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="process">
-        <h3 style="margin-bottom:8px">How it works</h3>
-        <div class="steps">
-          <div class="step">
-            <div class="num">1</div>
-            <strong>Free Consultation</strong>
-            <div style="color:var(--muted);margin-top:8px">Tell us your goal. We evaluate options.</div>
-          </div>
-          <div class="step">
-            <div class="num">2</div>
-            <strong>Personalized Plan</strong>
-            <div style="color:var(--muted);margin-top:8px">We prepare a step-by-step roadmap and checklist.</div>
-          </div>
-          <div class="step">
-            <div class="num">3</div>
-            <strong>Application Support</strong>
-            <div style="color:var(--muted);margin-top:8px">We help with document drafting, submission and follow-up.</div>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <h3 style="margin-bottom:8px">Success Stories</h3>
-        <div class="testimonials">
-          <div class="testimonial">
-            <strong>Student visa – Finland</strong>
-            <p>“WellGrow helped me from document check to pre-departure — visa approved within weeks!”</p>
-          </div>
-          <div class="testimonial">
-            <strong>Work visa – Netherlands</strong>
-            <p>“Professional guidance, clear fees, and constant updates. Highly recommended.”</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact">
-        <h3 style="margin-bottom:8px">Contact & Book Consultation</h3>
-        <div class="contact">
-          <div>
-            <p style="color:var(--muted)">Fill the form and our counsellor will reach out within 24 hours.</p>
-            <form onsubmit="alert('This is a demo form — integrate with backend to collect leads.');return false;">
-              <input placeholder="Full name" required />
-              <input placeholder="Email" type="email" required />
-              <input placeholder="Phone" required />
-              <select required>
-                <option value="">Service of interest</option>
-                <option>Student Visa</option>
-                <option>Work Visa</option>
-                <option>Spouse/Family Visa</option>
-              </select>
-              <textarea placeholder="Message / Brief background" rows="4"></textarea>
-              <button class="send" type="submit">Book Free Consultation</button>
-            </form>
-          </div>
-
-          <aside class="card-hero" style="height:100%;display:flex;flex-direction:column;justify-content:center;">
-            <h4 style="margin:0 0 8px">Need quick help?</h4>
-            <p style="margin:0 0 14px;color:var(--muted)">Call/WhatsApp: +91-95120-33184<br/>Email: sales@samtubes.com</p>
-            <div style="display:flex;gap:8px">
-              <a class="btn btn-outline" href="#">Instagram</a>
-              <a class="btn btn-outline" href="#">LinkedIn</a>
-            </div>
-          </aside>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
-        <div>
-          <strong>WellGrow Global Services</strong>
-          <div style="color:var(--muted)">Growing With You, Across the World</div>
-        </div>
-        <div style="color:var(--muted)">© 2025 WellGrow Global Services — All rights reserved</div>
-      </div>
-    </footer>
-  </div>
-</body>
-</html>
+  <!-- About Section -->
+  <section class="section" id="about">
+    <div class="section-heading">हमारे बारे में</div>
+    <div class="about-content">
+      WellGrow Global Services उत्कृष्टता और ईमानदारी का पर्याय है। हम शिक्षा, करियर और अंतर्राष्ट्रीय अवसरों के लिए शुरुआत से मंज़िल तक संपूर्ण मार्गदर्शन प्रदान करते हैं। हर क्लाइंट को मिलती है विशेषज्ञ सलाह, स्पष्टता और हर कदम पर पारदर्शिता — जिससे हर सपने को मिले साकार रूप और हर प्रयास को सर्वोत्तम परिणाम।
+    </div>
+    <div class="about-highlights">
+      <div class="about-highlight">
+        <div class="about-icon">🌍</div>
+        <div class="about-highlight-title">12+ देशों का नेटवर्क</div>
+        <div>विश्वभर
