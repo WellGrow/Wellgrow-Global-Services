@@ -1,222 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WellGrow Global Services</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --primary: #1A3E70;
-      --secondary: #7FBF4F;
-      --highlight: #FFD700;
-      --text: #333;
-      --bg: #F9FAFB;
-      --font-heading: 'Montserrat', sans-serif;
-      --font-body: 'Inter', sans-serif;
-    }
-
-    * {
+    body {
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
+      background: #f9f9f9;
+      color: #333;
     }
-
-    body {
-      font-family: var(--font-body);
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
     header {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      background: #0d6efd;
       color: white;
+      padding: 20px;
       text-align: center;
-      padding: 4rem 2rem;
     }
-
-    header img {
-      width: 120px;
-      margin-bottom: 1rem;
-    }
-
-    h1 {
-      font-family: var(--font-heading);
+    header h1 {
+      margin: 0;
       font-size: 2.5rem;
-      margin-bottom: 0.5rem;
     }
-
-    h2 {
-      font-family: var(--font-heading);
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      text-align: center;
-      color: var(--primary);
+    header p {
+      margin: 5px 0 0;
+      font-size: 1.2rem;
     }
-
-    p {
-      font-size: 1rem;
-      margin-bottom: 1rem;
+    nav {
+      background: #003566;
+      padding: 10px;
       text-align: center;
     }
-
-    .btn {
-      display: inline-block;
-      background-color: var(--highlight);
-      color: var(--primary);
-      padding: 0.75rem 1.5rem;
-      border-radius: 5px;
+    nav a {
+      color: white;
       text-decoration: none;
+      margin: 0 15px;
       font-weight: bold;
-      margin-top: 1rem;
     }
-
-    .section {
-      padding: 3rem 2rem;
+    nav a:hover {
+      text-decoration: underline;
     }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
+    section {
+      padding: 40px;
+      text-align: center;
     }
-
+    section h2 {
+      color: #0d6efd;
+    }
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+    }
     .card {
       background: white;
-      border: 1px solid #ddd;
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      padding: 20px;
+      margin: 15px;
+      width: 250px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
     }
-
+    .card:hover {
+      transform: translateY(-5px);
+    }
     footer {
-      background-color: var(--primary);
+      background: #003566;
       color: white;
       text-align: center;
-      padding: 2rem;
-      margin-top: 3rem;
-    }
-
-    footer a {
-      color: var(--highlight);
-      text-decoration: none;
-      margin: 0 0.5rem;
-    }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 2rem; }
-      h2 { font-size: 1.5rem; }
+      padding: 15px;
+      margin-top: 30px;
     }
   </style>
 </head>
 <body>
-
-  <!-- Hero Section -->
   <header>
-    <img src="assets/images/logo.png" alt="WellGrow Logo" />
     <h1>WellGrow Global Services</h1>
     <p>Growing With You, Across the World</p>
-    <p>Trusted Visa & Immigration Consulting for Students, Professionals & Families.</p>
-    <a href="#contact" class="btn">Contact Us</a>
   </header>
 
-  <!-- About Section -->
-  <section class="section" id="about">
-    <h2>About Us</h2>
-    <p>WellGrow Global Services helps individuals and families reach their international goals through expert visa consulting. We specialize in strategy, documentation, and end-to-end support for study, work, and migration pathways.</p>
-  </section>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
+  </nav>
 
-  <!-- Services Section -->
-  <section class="section" id="services">
-    <h2>Our Visa Services</h2>
-    <div class="grid">
+  <section>
+    <h2>Welcome to WellGrow</h2>
+    <p>We are committed to delivering trusted global solutions with modern professionalism.</p>
+
+    <div class="services">
       <div class="card">
-        <h3>Study Abroad Counselling</h3>
-        <p>Guidance for Singapore, UK, Australia, Canada, USA.</p>
+        <h3>🌍 Global Reach</h3>
+        <p>Expanding businesses and services across international borders.</p>
       </div>
       <div class="card">
-        <h3>Visa Lodgement & Approval</h3>
-        <p>Professional support for Dubai, UK, Australia, Canada, USA.</p>
+        <h3>🤝 Trusted Partnerships</h3>
+        <p>Building long-term relationships with clients and partners.</p>
       </div>
       <div class="card">
-        <h3>Scholarship & Forex Guidance</h3>
-        <p>Help with financial planning and scholarship applications.</p>
-      </div>
-      <div class="card">
-        <h3>Interview & Document Support</h3>
-        <p>Mock interviews and document preparation assistance.</p>
+        <h3>🚀 Growth Solutions</h3>
+        <p>Modern strategies to ensure sustainable and scalable success.</p>
       </div>
     </div>
   </section>
 
-  <!-- Countries Section -->
-  <section class="section" id="countries">
-    <h2>Our Destinations</h2>
-    <div class="grid">
-      <div class="card">UK</div>
-      <div class="card">USA</div>
-      <div class="card">Canada</div>
-      <div class="card">Australia</div>
-      <div class="card">Germany</div>
-      <div class="card">Dubai</div>
-      <div class="card">Europe</div>
-    </div>
-  </section>
-
-  <!-- Testimonials Section -->
-  <section class="section" id="testimonials">
-    <h2>Testimonials</h2>
-    <div class="grid">
-      <div class="card">
-        <p>"Got my visa approved in just 2 weeks!"</p>
-        <p><strong>- Rohit</strong></p>
-      </div>
-      <div class="card">
-        <p>"WellGrow helped me with scholarship guidance – highly recommend!"</p>
-        <p><strong>- Priya</strong></p>
-      </div>
-      <div class="card">
-        <p>"Smooth and professional process for my study abroad."</p>
-        <p><strong>- Amit</strong></p>
-      </div>
-    </div>
-  </section>
-
-  <!-- News Section -->
-  <section class="section" id="news">
-    <h2>Latest News</h2>
-    <div class="grid">
-      <div class="card">
-        <p><strong>Latest Visa Guidelines Updated</strong></p>
-        <p>14 Sep 2025</p>
-      </div>
-      <div class="card">
-        <p><strong>Scholarship Opportunities 2025</strong></p>
-        <p>10 Sep 2025</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section class="section" id="contact">
-    <h2>Contact Us</h2>
-    <p>📞 Phone: +91 91579 96914</p>
-    <p>📧 Email: <a href="mailto:wellgrowglobalservice@gmail.com">wellgrowglobalservice@gmail.com</a></p>
-    <p>📍 Location: Kadi, Gujarat, India</p>
-    <p>
-      <a href="#">Instagram</a> |
-      <a href="#">Facebook</a> |
-      <a href="#">LinkedIn</a>
-    </p>
-  </section>
-
-  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 WellGrow Global Services. All rights reserved.</p>
-    <p>Registered under MCA | Trusted by 1000+ clients</p>
+    <p>© 2025 WellGrow Global Services | All Rights Reserved</p>
   </footer>
-
 </body>
 </html>
+
