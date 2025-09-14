@@ -1,673 +1,186 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WellGrow Global Services</title>
-  <!-- Google Fonts Integration -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
   <style>
     :root {
-      --blue: #182747;
-      --blue-dark: #0A193D;
-      --green: #30B700;
-      --gold: #FFD700;
-      --gray: #F7F7F7;
-      --gray-dark: #616161;
-      --white: #fff;
-      --aqua: #21E6C1;
-      --transition: all 0.3s cubic-bezier(.4,0,.2,1);
+      --primary: #1A3E70;
+      --secondary: #7FBF4F;
+      --highlight: #FFD700;
+      --text: #4B4B4B;
+      --bg: #F9FAFB;
+      --font-heading: 'Montserrat', sans-serif;
+      --font-body: 'Inter', sans-serif;
     }
-    html,body {
-      margin:0;
-      padding:0;
-      font-family: 'Inter', sans-serif;
-      background: var(--gray);
-      color: var(--blue-dark);
-      scroll-behavior: smooth;
-    }
-    body {
-      font-size:16px;
-      min-width:320px;
-    }
-    /* Navigation */
-    .navbar {
-      width:100%;
-      background:var(--blue-dark);
-      color:var(--white);
-      position:sticky;
-      top:0;
-      z-index:100;
-      display:flex;
-      align-items:center;
-      padding:0 32px;
-      height:72px;
-      box-shadow:0 2px 12px rgba(13,35,64,.03);
-    }
-    .navbar-logo {
-      display:flex;
-      align-items:center;
-    }
-    .navbar-logo svg {
-      height:34px;
-      margin-right:12px;
-    }
-    .navbar-title {
-      font-family:'Montserrat',sans-serif;
-      font-weight:700;
-      font-size:1.5rem;
-      letter-spacing:2px;
-    }
-    .nav-links {
-      margin-left:auto;
-      display:flex;
-      gap:32px;
-    }
-    .nav-links a {
-      color:var(--white);
-      text-decoration:none;
-      font-family:'Montserrat',sans-serif;
-      font-size:1rem;
-      letter-spacing:.5px;
-      transition:color .2s;
-      position:relative;
-      padding-bottom:2px;
-    }
-    .nav-links a:after {
-      content:'';
-      position:absolute;
-      width:0;
-      left:0;
-      bottom:0;
-      height:2.5px;
-      background:linear-gradient(90deg,var(--green),var(--gold));
-      transition:width 0.2s;
-      border-radius:2px;
-    }
-    .nav-links a:hover, .nav-links a.active {
-      color:var(--gold);
-    }
-    .nav-links a:hover:after, .nav-links a.active:after {
-      width:100%;
-    }
-    /* Hero Section */
-    .hero {
-      background: linear-gradient(90deg,var(--blue-dark) 60%,var(--green) 100%);
-      color: var(--white);
-      min-height: 440px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      padding: 80px 6vw 48px 6vw;
-      position:relative;
-      overflow:hidden;
-    }
-    .hero-content {
-      max-width: 520px;
-      z-index:2;
-    }
-    .hero-title {
-      font-family:'Montserrat',sans-serif;
-      font-size: 2.4rem;
-      font-weight: bold;
-      margin-bottom: 16px;
-      line-height:1.15;
-      letter-spacing:1px;
-    }
-    .hero-tagline {
-      font-size: 1.14rem;
-      margin-bottom: 30px;
-      color:#E8EAF6;
-      font-weight:400;
-      letter-spacing:.2px;
-    }
-    .hero-cta {
-      background: linear-gradient(90deg,var(--gold),var(--green));
-      color:var(--blue-dark);
-      font-family:'Montserrat',sans-serif;
-      font-size:1.09rem;
-      font-weight:700;
-      padding:13px 38px;
-      border:none;
-      border-radius:32px;
-      cursor:pointer;
-      box-shadow:0 1.5px 14px rgba(0,0,0,.07);
-      transition:background .25s,transform .18s;
-      outline:none;
-      margin-top:8px;
-      letter-spacing:.5px;
-      position:relative;
-      overflow:hidden;
-    }
-    .hero-cta:hover, .hero-cta:focus {
-      background:linear-gradient(90deg,var(--green),var(--gold),var(--aqua));
-      color:var(--blue-dark);
-      transform:translateY(-3px) scale(1.04);
-      box-shadow:0 6px 28px 0 rgba(0,0,0,0.12);
-    }
-    .hero-image {
-      flex:1;
-      min-width:280px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      position:relative;
-      z-index:1;
-    }
-    .hero-img-circle {
-      width:320px;
-      height:320px;
-      border-radius:50%;
-      background: linear-gradient(135deg, var(--gold) 0%, var(--aqua) 80%);
-      filter: blur(21px) opacity(.47);
-      position:absolute;
-      left:30px;
-      top:56px;
-      z-index:0;
-    }
-    .hero-img-main {
-      width:200px;
-      height:200px;
-      background:
-        url('https://cdn.pixabay.com/photo/2017/10/31/09/57/globe-2907738_1280.png') center/cover no-repeat,
-        linear-gradient(135deg, var(--blue-dark) 54%, transparent 100%);
-      border-radius: 24px 64px 24px 64px;
-      border:8px solid var(--gold);
-      z-index:3;
-      box-shadow:0 6px 32px 0 rgba(22,38,71,0.12);
-    }
-    /* About Section */
-    .section {
-      padding:60px 4vw 40px 4vw;
-      background:var(--white);
-      position:relative;
-    }
-    .section-heading {
-      font-family:'Montserrat',sans-serif;
-      font-size:2rem;
-      color:var(--blue-dark);
-      font-weight:700;
-      margin-bottom:20px;
-      position:relative;
-    }
-    .section-heading::after {
-      content:"";
-      display:block;
-      width:72px;
-      height:4px;
-      background:linear-gradient(90deg,var(--green),var(--gold),var(--aqua));
-      margin-top:12px;
-      border-radius:2.5px;
-    }
-    .about-content {
-      max-width:800px;
-      line-height:1.7;
-      font-size:1.11rem;
-      color:var(--gray-dark);
-      margin-bottom:20px;
-    }
-    .about-highlights {
-      display:flex;
-      flex-wrap:wrap;
-      gap:36px;
-      margin-top:32px;
-    }
-    .about-highlight {
-      flex:1 1 180px;
-      background:linear-gradient(92deg,var(--gray),white 83%,var(--aqua) 110%);
-      border-radius:14px;
-      padding:24px 18px 18px 20px;
-      box-shadow:0 1.5px 12px 1.5px rgba(30,44,80,0.04);
-      min-width:170px;
-      transition:var(--transition);
-      border-left:5px solid var(--blue);
-    }
-    .about-highlight:hover {
-      border-left:6px solid var(--gold);
-      box-shadow:0 4px 22px 6px rgba(39,61,102,0.11);
-      transform:translateY(-6px) scale(1.04);
-    }
-    .about-icon {
-      font-size:2.14rem;
-      color:var(--green);
-      margin-bottom:7px;
-    }
-    .about-highlight-title {
-      font-family:'Montserrat',sans-serif;
-      font-weight:600;
-      font-size:1.14rem;
-      margin-bottom:6px;
-      color:var(--blue-dark);
-    }
-    /* Services Section */
-    .services-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
-      gap:32px;
-      margin-top:30px;
-      margin-bottom:12px;
-    }
-    .service-card {
-      background: linear-gradient(136deg,var(--blue-dark) 80%, var(--aqua) 133%);
-      color:var(--white);
-      border-radius:18px;
-      box-shadow:0 1.5px 13px 2px rgba(30,44,80,0.05);
-      padding:32px 20px 28px 20px;
-      display:flex;
-      flex-direction:column;
-      align-items:flex-start;
-      cursor:pointer;
-      transition:var(--transition);
-      outline: none;
-      border: none;
-      position:relative;
-    }
-    .service-card:focus, .service-card:hover {
-      box-shadow:0 6px 30px 0 rgba(14,125,59,0.13),0 2px 22px 0 var(--aqua);
-      background: linear-gradient(110deg,var(--aqua) 65%, var(--green) 133%);
-      color:var(--blue-dark);
-      transform:translateY(-7px) scale(1.036);
-    }
-    .service-icon {
-      font-size:2.0rem;
-      color:var(--gold);
-      margin-bottom:12px;
-      transition:color .18s;
-    }
-    .service-card:hover .service-icon { color:var(--white);}
-    .service-title {
-      font-family:'Montserrat',sans-serif;
-      font-weight:600;
-      font-size:1.14rem;
-      margin-bottom:0.8rem;
-    }
-    .service-desc {
-      font-size:0.97rem;
-      line-height:1.5;
-      margin-bottom:0.9rem;
-    }
-    .service-cta {
-      background: none;
-      padding:0;
-      color:var(--green);
-      font-weight: 600;
-      font-family:inherit;
-      font-size:1rem;
-      cursor:pointer;
-      border: none;
-      transition:color .20s;
-    }
-    .service-card:hover .service-cta { color:var(--blue-dark) }
 
-    /* Process/Steps */
-    .steps-list {
-      display:flex;
-      flex-wrap:wrap;
-      gap:28px 36px;
-      margin-top:28px;
-      flex-direction:row;
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      background-color: var(--bg);
+      color: var(--text);
     }
-    .step-card {
-      flex: 1 1 180px;
-      background:#F4F9FF;
-      border-radius:15px;
-      box-shadow:0 1.5px 8px 1px rgba(34,52,90,0.04);
-      padding:19px 18px 23px 18px;
-      position:relative;
-      border-top:6px solid var(--green);
-      transition:var(--transition);
-      min-width:170px;
-      z-index:2;
-      display:flex;
-      flex-direction:column;
+
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 4rem 2rem;
+      text-align: center;
     }
-    .step-badge {
-      width:38px;height:38px;
-      border-radius:30%;
-      background:linear-gradient(135deg,var(--green),var(--gold));
-      color:var(--blue-dark);
-      font-weight:bold;
-      font-family:'Montserrat',sans-serif;
-      font-size:1.29rem;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      margin-bottom:17px;
-      box-shadow:0 2px 9px 0 rgba(14,125,59,0.10);
+
+    header img {
+      width: 120px;
+      margin-bottom: 1rem;
     }
-    .step-title {
-      font-family:'Montserrat',sans-serif;
-      font-size:1.11rem;
-      font-weight:600;
-      color:var(--blue-dark);
-      margin-bottom:6px;
+
+    h1 {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
     }
-    .step-desc {
-      font-size:.98rem;
-      color:var(--gray-dark);
-      line-height:1.55;
+
+    h2 {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+      text-align: center;
+      color: var(--primary);
     }
-    .step-card:hover, .step-card:focus {
-      border-top:7px solid var(--gold);
-      background:linear-gradient(90deg,var(--gray) 47%,#E6FAF9 104%);
-      box-shadow:0 4px 21px 4px rgba(33,230,193,0.09);
-      transform:translateY(-5px) scale(1.02);
+
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      text-align: center;
     }
-    /* Testimonials */
-    .testimonials-slider {
-      width:100%;
-      margin-top:38px;
-      position:relative;
-      overflow:hidden;
-      min-height:190px;
-      padding-bottom:16px;
+
+    .btn {
+      display: inline-block;
+      background-color: var(--highlight);
+      color: var(--primary);
+      padding: 0.75rem 1.5rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 1rem;
     }
-    .testimonial-cards {
-      display:flex;
-      gap:32px;
-      transition:var(--transition);
-      min-width:600px;
-      width: max-content;
-      /* For simple showcase, not carousel here, in prod, use JS slider for auto-scroll */
+
+    .section {
+      padding: 3rem 2rem;
     }
-    .testimonial-card {
-      background:linear-gradient(133deg,var(--white) 88%,var(--aqua) 143%);
-      border-radius:18px;
-      box-shadow:0 1.5px 12px 2px rgba(30,44,80,0.09);
-      padding:30px 22px 22px 22px;
-      min-width:260px;
-      max-width:315px;
-      display:flex;
-      flex-direction:column;
-      align-items:start;
-      position:relative;
-      transition:var(--transition);
-      border-left:5.4px solid var(--green);
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
     }
-    .testimonial-card:hover {
-      box-shadow:0 8px 30px 0 rgba(14,125,59,0.10),0 2px 21px 0 var(--aqua);
-      border-left:6px solid var(--gold);
-      background:linear-gradient(120deg,var(--white) 80%,var(--gold) 153%);
-      transform:translateY(-6px) scale(1.04);
+
+    .card {
+      background: white;
+      border: 1px solid #ddd;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
-    .testimonial-quote {
-      font-size:1.1rem;
-      font-style:italic;
-      color:var(--blue-dark);
-      margin-bottom:13px;
-      line-height:1.5;
-      position:relative;
-      letter-spacing:.13px;
+
+    footer {
+      background-color: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 3rem;
     }
-    .testimonial-person {
-      display:flex;
-      align-items:center;
-      gap:14px;
-      margin-top:2px;
+
+    footer a {
+      color: var(--highlight);
+      text-decoration: none;
+      margin: 0 0.5rem;
     }
-    .testimonial-photo {
-      width:46px;
-      height:46px;
-      border-radius:50%;
-      background:var(--gray-dark);
-      border:2.5px solid var(--aqua);
-      object-fit:cover;
-    }
-    .testimonial-meta {
-      display:flex;
-      flex-direction:column;
-      line-height:1.05;
-    }
-    .testimonial-name { font-size:.97rem; font-weight:600; color:var(--blue-dark);}
-    .testimonial-role { font-size:.92rem; color:var(--gold);}
-    /* Contact Section */
-    .contact-wrap {
-      display:flex;
-      flex-wrap:wrap;
-      gap:32px;
-      margin-top:36px;
-    }
-    .contact-form, .contact-info {
-      flex:1 1 308px;
-      background:linear-gradient(120deg,var(--white) 74%,var(--aqua) 174%);
-      border-radius:18px;
-      box-shadow:0 2px 14px 2px rgba(30,44,90,0.08);
-      padding:36px 32px 30px 32px;
-      min-width:270px;
-    }
-    .contact-info {
-      background:linear-gradient(114deg,var(--gray) 84%,var(--gold) 124%);
-      color:var(--blue-dark);
-    }
-    .contact-form label {
-      display:block;
-      font-weight:500;
-      margin-bottom:7px;
-      color:var(--blue-dark);
-      font-family:'Montserrat',sans-serif;
-    }
-    .contact-form input[type="text"], .contact-form input[type="email"], .contact-form textarea {
-      width:100%;
-      border-radius:8px;
-      border:1.7px solid var(--aqua);
-      background:var(--gray);
-      padding:11px 13px;
-      margin-bottom:18px;
-      font-size:1rem;
-      font-family:inherit;
-      resize:none;
-      outline:none;
-      box-sizing:border-box;
-      transition:border .15s,box-shadow .16s;
-    }
-    .contact-form input:focus, .contact-form textarea:focus {
-      border:2.2px solid var(--gold);
-      box-shadow: 0 3px 10px 0 var(--aqua);
-    }
-    .contact-form textarea { min-height:78px; }
-    .contact-form button {
-      background:linear-gradient(94deg, var(--green) 66%,var(--gold) 133%);
-      color:var(--blue-dark);
-      border:none;
-      border-radius:10px;
-      padding:12px 32px;
-      font-family:'Montserrat',sans-serif;
-      font-size:1.13rem;
-      font-weight:600;
-      letter-spacing:.6px;
-      cursor:pointer;
-      transition:background .2s,transform .2s;
-      box-shadow:0 2px 20px 0 rgba(18,39,61,0.06);
-      outline:none;
-    }
-    .contact-form button:hover, .contact-form button:focus {
-      background:linear-gradient(104deg,var(--gold),var(--green),var(--aqua) 93%);
-      transform:translateY(-2px) scale(1.04);
-      color:var(--blue);
-      box-shadow:0 2px 25px 8px rgba(33,230,193,.13);
-    }
-    .contact-info h3 {
-      font-size:1.07rem;
-      font-family:'Montserrat',sans-serif;
-      font-weight:bold;
-      margin-bottom:8px;
-      color:var(--blue-dark);
-      letter-spacing:.14px;
-    }
-    .contact-info ul {
-      list-style:none;
-      padding-left:0;
-    }
-    .contact-info li {
-      margin-bottom:15px;
-      display:flex;
-      align-items:center;
-      gap:14px;
-      font-size:1.05rem;
-      color:var(--blue-dark);
-    }
-    .contact-icon {
-      font-size:1.25rem;
-      color:var(--green);
-    }
-    .social-icons {
-      display:flex;
-      gap:15px;
-      margin-top:20px;
-    }
-    .social-icons a {
-      color:var(--blue-dark);
-      background:rgba(193,229,230,0.23);
-      width:34px;height:34px;
-      display:inline-flex;align-items:center;justify-content:center;
-      border-radius: 50%;
-      font-size:1.11rem;
-      border:1.5px solid var(--aqua);
-      transition:background .20s, color .19s, border .2s;
-    }
-    .social-icons a:hover {
-      background:var(--blue-dark);
-      color:var(--gold);
-      border-color:var(--gold);
-    }
-    /* Footer */
-    .footer {
-      background: var(--blue-dark);
-      color:var(--white);
-      padding:35px 4vw 24px 4vw;
-      display:flex;
-      flex-wrap:wrap;
-      gap:30px;
-      justify-content:space-between;
-      align-items:flex-start;
-    }
-    .footer-brand {
-      display:flex;
-      align-items:center;
-      gap:13px;
-      margin-bottom:6px;
-    }
-    .footer-logo {
-      width:36px;height:36px;
-    }
-    .footer-title {
-      font-size:1.25rem;
-      font-family:'Montserrat',sans-serif;
-      font-weight:bold;
-      letter-spacing:.9px;
-    }
-    .footer-links, .footer-contact, .footer-social {
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-    }
-    .footer-links a {
-      color:var(--white);
-      text-decoration:none;
-      font-size:.98rem;
-      transition:color .19s;
-    }
-    .footer-links a:hover,.footer-links a:focus { color:var(--gold);}
-    .footer-contact span {
-      display:inline-block;
-      font-size:.97rem;
-      color:var(--gray);
-    }
-    .footer-social {
-      flex-direction:row;
-      gap:17px;
-      margin-top:2px;
-    }
-    .footer-social a {
-      color:var(--gold);
-      font-size:1.15rem;
-      transition:color .20s;
-    }
-    .footer-social a:hover { color:var(--green);}
-    .footer-copyright {
-      width:100%;
-      text-align:center;
-      color:var(--gray);
-      padding-top:23px;
-      margin-bottom:0;
-      font-size:.93rem;
-      letter-spacing:.11px;
-    }
-    /* Animations */
-    @media (max-width: 900px) {
-      .navbar {height:56px; padding:0 12px;}
-      .nav-links {gap:17px;}
-      .hero {padding-top: 58px;padding-bottom:12px;}
-      .hero-img-main {width:145px;height:145px;}
-      .hero-img-circle {width:185px;height:185px; left:-9px;top:21px;}
-      .about-highlights, .steps-list, .services-list, .contact-wrap {gap:14px;}
-      .section,.footer {padding:34px 2vw;}
-    }
-    @media (max-width:600px) {
-      .navbar {flex-direction:column;padding:0 5px;height:auto;}
-      .nav-links {margin-left:0;margin-top:8px;}
-      .hero {flex-direction:column;align-items:flex-start;padding:33px 2vw;}
-      .hero-content {max-width:100%;margin-bottom:22px;}
-      .hero-image {justify-content:flex-start;}
-      .about-highlights,.steps-list,.services-list,.contact-wrap {flex-direction:column;gap:17px;}
-      .footer {flex-direction:column;gap:13px;}
-      .testimonials-slider {min-width:auto;}
-      .testimonial-cards {flex-direction:column;gap:23px;}
-      .section-heading {font-size:1.44rem;}
-      .hero-title {font-size:1.31rem;}
-      .footer-title {font-size:1.12rem;}
-    }
-    /* Scrollbar styling for visual */
-    ::-webkit-scrollbar {height:7px;width:7px;}
-    ::-webkit-scrollbar-thumb {background:linear-gradient(135deg,var(--aqua) 47%,var(--blue) 101%);border-radius:6px;}
-    ::selection {background:#d5ffe6;color:var(--blue);}
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="navbar-logo">
-      <svg viewBox="0 0 40 40" width="36" height="36" fill="none">
-        <circle cx="20" cy="20" r="20" fill="#30B700"/>
-        <path d="M11 26l7-12 4 7 7-10" stroke="#FFD700" stroke-width="2.2" fill="none"/>
-        <circle cx="29" cy="14" r="3" fill="#FFD700"/>
-      </svg>
-      <span class="navbar-title">WellGrow</span>
-    </div>
-    <div class="nav-links">
-      <a href="#home" class="active">होम</a>
-      <a href="#about">परिचय</a>
-      <a href="#services">सेवाएँ</a>
-      <a href="#process">प्रक्रिया</a>
-      <a href="#testimonials">प्रशंसा</a>
-      <a href="#contact">संपर्क</a>
-    </div>
-  </nav>
-
   <!-- Hero Section -->
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <div class="hero-title">विश्व स्तरीय सफलता का आपका भरोसेमंद मार्गदर्शक</div>
-      <div class="hero-tagline">
-        WellGrow Global Services — आपकी शिक्षा, रोजगार व ग्लोबल अवसरों की ओर अग्रसर यात्रा को नया आयाम देता है। विशेषज्ञ मार्गदर्शन, वैयक्तिकृत सेवाएँ एवं अभूतपूर्व परिणाम — क्योंकि आपका ग्रोथ ही हमारा लक्ष्य है।
-      </div>
-      <a href="#contact" class="hero-cta">हमसे संपर्क करें</a>
-    </div>
-    <div class="hero-image">
-      <div class="hero-img-circle"></div>
-      <div class="hero-img-main"></div>
-    </div>
-  </section>
+  <header>
+    <img src="assets/images/logo.png" alt="WellGrow Logo" />
+    <h1>WellGrow Global Services</h1>
+    <p>Growing With You, Across the World</p>
+    <p>We provide trusted Visa & Immigration consulting for Students, Professionals & Families.</p>
+    <a href="#contact" class="btn">Contact Us</a>
+  </header>
 
   <!-- About Section -->
   <section class="section" id="about">
-    <div class="section-heading">हमारे बारे में</div>
-    <div class="about-content">
-      WellGrow Global Services उत्कृष्टता और ईमानदारी का पर्याय है। हम शिक्षा, करियर और अंतर्राष्ट्रीय अवसरों के लिए शुरुआत से मंज़िल तक संपूर्ण मार्गदर्शन प्रदान करते हैं। हर क्लाइंट को मिलती है विशेषज्ञ सलाह, स्पष्टता और हर कदम पर पारदर्शिता — जिससे हर सपने को मिले साकार रूप और हर प्रयास को सर्वोत्तम परिणाम।
+    <h2>About Us</h2>
+    <p>WellGrow Global Services is a trusted visa consultancy dedicated to helping individuals and families migrate, work, or study abroad. Our experienced team provides personalized guidance to ensure a smooth and hassle-free visa application experience.</p>
+  </section>
+
+  <!-- Services Section -->
+  <section class="section" id="services">
+    <h2>Our Visa Services</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Student Visas</h3>
+        <p>Complete guidance for Singapore, Finland, UK, Australia, Canada.</p>
+        <p><strong>Contact:</strong> +91 91579 96914</p>
+      </div>
+      <div class="card">
+        <h3>Work Visas</h3>
+        <p>Professional assistance for Dubai, UK, Australia, Canada, USA.</p>
+        <p><strong>Contact:</strong> +91 81604 53363</p>
+      </div>
+      <div class="card">
+        <h3>General Inquiries</h3>
+        <p>Tourist, family, or multiple country inquiries.</p>
+        <p><strong>Contact:</strong> +91 96012 56630</p>
+      </div>
     </div>
-    <div class="about-highlights">
-      <div class="about-highlight">
-        <div class="about-icon">🌍</div>
-        <div class="about-highlight-title">12+ देशों का नेटवर्क</div>
-        <div>विश्वभर
+  </section>
+
+  <!-- Process Section -->
+  <section class="section" id="process">
+    <h2>Our Simple 3-Step Process</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>1. Consultation</h3>
+        <p>We assess your profile and goals to recommend the best visa path.</p>
+      </div>
+      <div class="card">
+        <h3>2. Documentation</h3>
+        <p>We help prepare and submit all required documents accurately.</p>
+      </div>
+      <div class="card">
+        <h3>3. Approval & Support</h3>
+        <p>We track your application and support you until visa success.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section" id="contact">
+    <h2>Contact Us</h2>
+    <p>📞 Phone: +91 91579 96914</p>
+    <p>📧 Email: <a href="mailto:wellgrowglobalservice@gmail.com">wellgrowglobalservice@gmail.com</a></p>
+    <p>📍 Location: Kadi, Gujarat, India</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 WellGrow Global Services. All rights reserved.</p>
+    <p>
+      <a href="#">Instagram</a> |
+      <a href="#">Facebook</a> |
+      <a href="#">LinkedIn</a>
+    </p>
+  </footer>
+
+</body>
+</html>
